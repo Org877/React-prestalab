@@ -1,1 +1,3 @@
-# React-prestalab
+React-prestalab
+
+Proyecto React para gestión de préstamos.
