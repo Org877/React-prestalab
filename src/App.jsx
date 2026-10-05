@@ -5,7 +5,7 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 import Catalogo from './assets/components/Catalogo'
 import TarjetaEquipo from './assets/components/TarjetaEquipo'
-import { equipos } from './assets/data/equipos'
+import { equipos } from "./data/equipos.js";
 
 function App() {
   const total = 5
