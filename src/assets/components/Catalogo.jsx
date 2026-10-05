@@ -5,14 +5,16 @@ function Catalogo({ equipos }) {
     const [soloDisponibles, setSoloDisponibles] = useState(false)
     const [busqueda, setBusqueda] = useState('')
 
-
-// valores derivados: se calcual en cada renderizado, no se guarda en el estado
     const visibles = equipos
-        .filter((e) => !soloDisponibles || e.disponible)
-        .filter((e) => e.nombre.toLowerCase().includes(busqueda.toLowerCase())
+        .filter((e) => !soloDisponibles || e.disponibles)
+        .filter((e) =>
+            e.nombre.toLowerCase().includes(busqueda.toLowerCase())
         )
 
-    const totalDisponibles = equipos.reduce((suma, e) => suma + (e.disponible ? suma + 1 : suma), 0)
+    const totalDisponibles = equipos.reduce(
+        (suma, e) => suma + (e.disponibles ? 1 : 0),
+        0
+    )
 
     return (
         <section>
@@ -21,13 +23,17 @@ function Catalogo({ equipos }) {
 
             <label>
                 Buscar equipo
-                <input value={busqueda} onChange={(ev) => setBusqueda(ev.target.value)} />
+                <input
+                    value={busqueda}
+                    onChange={(e) => setBusqueda(e.target.value)}
+                />
             </label>
+
             <label>
                 <input
                     type="checkbox"
                     checked={soloDisponibles}
-                    onChange={(e) => setSoloDisponibles(ev.target.checked)}
+                    onChange={(e) => setSoloDisponibles(e.target.checked)}
                 />
                 Solo disponibles
             </label>
@@ -43,4 +49,5 @@ function Catalogo({ equipos }) {
 }
 
 export default Catalogo
+`
 
