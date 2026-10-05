@@ -49,5 +49,4 @@ function Catalogo({ equipos }) {
 }
 
 export default Catalogo
-`
 
