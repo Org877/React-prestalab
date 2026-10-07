@@ -4,6 +4,16 @@ import TarjetaEquipo from './TarjetaEquipo'
 function Catalogo({ equipos }) {
     const [soloDisponibles, setSoloDisponibles] = useState(false)
     const [busqueda, setBusqueda] = useState('')
+    
+    //  Creamos el estado para guardar el equipo seleccionado
+    const [equipoSeleccionado, setEquipoSeleccionado] = useState(null)
+
+    console.log("renderizando catalogo")
+
+    //  Actualizamos el estado cuando hacen clic en agregar
+    const manejarAgregar = (equipo) => {
+        setEquipoSeleccionado(equipo)
+    }
 
     const visibles = equipos
         .filter((e) => !soloDisponibles || e.disponibles)
@@ -18,6 +28,9 @@ function Catalogo({ equipos }) {
 
     return (
         <section>
+            <h2>Seleccionados</h2>
+            <p>Has seleccionado: {equipoSeleccionado?.nombre || 'ningún'} equipo</p>
+            
             <h2>Catálogo de Equipos</h2>
             <p>{totalDisponibles} equipos disponibles</p>
 
@@ -42,11 +55,12 @@ function Catalogo({ equipos }) {
                 <TarjetaEquipo
                     key={equipo.id}
                     equipo={equipo}
+                    onAgregar={manejarAgregar}
                 />
             ))}
         </section>
     )
 }
 
+// 3. 
 export default Catalogo
-

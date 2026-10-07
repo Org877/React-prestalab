@@ -22,27 +22,16 @@ function App() {
  
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Mi primera app en react </h1>
-          <p>
-            Omar Reyes Gonzalez
-          </p>
-          <h3> Disponible: {disponible} </h3>
-        </div>
-       
-        <main>
-          <h1>Laboratorio prestamos</h1>
-          <Catalogo equipos={equipos} />
-          
-        </main>
-      </section>
+    <header>
+      <h1>Laboratorio de Prestamos</h1>
+      <p>Autor: Omar Reyes Gonzalez</p>
+    </header>
 
+    <main>
+      <Solicitud equipos={solicitados} onQuitar={Quitar} />
+      <Catalogo equipos={equipos} onAgregar={Agregar} />
+    </main>
+      
     </>
   )
 }
